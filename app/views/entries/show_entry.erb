@@ -1,9 +1,12 @@
-<h3>Show Page</h3>
-<%= @entry.content %>
+<h3>Your Interviews</h3>
+<p><%= @entry.program_name %></p>
+<p><%= @entry.program_field %></p>
+<p><%= @entry.content %></p>
 
 <form action="/entries/<%= @entry.id %>/delete" method="POST">
 <input type="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Entry">
 </form>
 
-<a href="/entries/<%= @entry.id %>/edit">Edit Info</a>
+<p><a href="/entries/<%= @entry.id %>/edit">Edit Info</a></p>
+<p><a href="/logout %>/edit">Logout</a></p>
