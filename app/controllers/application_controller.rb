@@ -54,7 +54,7 @@ class ApplicationController < Sinatra::Base
   get '/entries/:id/edit' do
     if logged_in?
       @entry = Entry.find_by_id(params[:id])
-      if @entry && @entry.user_id == current_applicant.id
+      if @entry && @entry.applicant_id == current_applicant.id
         erb :'entries/edit_entry'
       else
         redirect to "/entries"
