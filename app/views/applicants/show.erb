@@ -1,6 +1,10 @@
-<h2>List of Your Entries</h2>
+<h1>List of Your Entries</h1>
+
+<p><a href="/entries/new">Add Interview</a>
+</p>
+
 <p><% @applicant.each do |entry| %>
-    <%= entry.program_name %>
+    <a href="/entries/<%= entry.id %>"><%= entry.name %> - <%= entry.field %></a><br></br>
    <% end %>
 
 <a href="/logout">Logout</a>

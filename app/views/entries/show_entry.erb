@@ -1,7 +1,10 @@
-<h3>Your Interviews</h3>
-<p><%= @entry.program_name %></p>
-<p><%= @entry.program_field %></p>
-<p><%= @entry.content %></p>
+<h1>Your Interviews</h1>
+<p><h3>Program Name:</h3><br></br>
+  <%= @entry.name %></p>
+<p><h3>Program Field:</h3>
+  <%= @entry.field %></p>
+<p><h3>Experience:</h3>
+  <%= @entry.content %></p>
 
 <form action="/entries/<%= @entry.id %>/delete" method="POST">
 <input type="hidden" name="_method" value="DELETE">
@@ -9,4 +12,4 @@
 </form>
 
 <p><a href="/entries/<%= @entry.id %>/edit">Edit Info</a></p>
-<p><a href="/logout %>/edit">Logout</a></p>
+<p><a href="/logout">Logout</a></p>

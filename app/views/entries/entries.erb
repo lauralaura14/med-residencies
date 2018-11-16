@@ -1,6 +1,11 @@
 <h2>Welcome, <%= current_applicant.username %></h2>
-<p><% @entries.each do |entry| %>
-    <%= entry.program_name %>
-   <% end %>
+
+What would you like to do?
+
+<p><a href="/entries/new">Add Interview</a>
 </p>
+
+<p><a href="/applicants/show">View Your Interviews</a>
+</p>
+
 <a href="/logout">Logout</a>
