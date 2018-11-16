@@ -4,7 +4,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :name
       t.string :number
       t.text :content
-      t.integer :user_id
+      t.integer :applicant_id
     end
   end
 end
