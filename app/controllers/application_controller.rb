@@ -65,8 +65,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/entries' do
-    if logged_in? && params[:content] != ""
-      @entry = Entry.create(:content => params[:content], :applicant_id => session[:applicant_id])
+    if logged_in? && params[:name] != "" && params[:field] != "" && params[:content] != ""
+      @entry = Entry.create(:name => params[:name], :field => params[:field], :content => params[:content], :applicant_id => session[:applicant_id])
       redirect to "/entries/#{@entry.id}"
     else
       redirect to "/entries/new"
@@ -75,12 +75,12 @@ class ApplicationController < Sinatra::Base
 
   patch '/entries/:id' do
     if logged_in?
-      if params[:content] == "" || params[:content] == nil
+      if params[:name] == "" || params[:name] == nil || params[:field] == "" || params[:field] == nil || params[:content] == "" || params[:content] == nil
         redirect to "/entries/#{params[:id]}/edit"
       else
         @entry = Entry.find_by_id(params[:id])
         if @entry && @entry.applicant_id == current_applicant.id
-          if @entry.update(content: params[:content])
+          if @entry.update(:name => params[:name], :field => params[:field], :content => params[:content], :applicant_id => session[:applicant_id])
             redirect to "/entries/#{@entry.id}"
           else
             redirect to "/entries/#{@entry.id}/edit"

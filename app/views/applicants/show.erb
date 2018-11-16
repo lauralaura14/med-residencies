@@ -1,5 +1,7 @@
 <h2>List of Your Entries</h2>
 <p><% @applicant.each do |entry| %>
-    <%= entry.content %>
+    <%= entry.program_name %>
    <% end %>
+
+<a href="/logout">Logout</a>
 </p>

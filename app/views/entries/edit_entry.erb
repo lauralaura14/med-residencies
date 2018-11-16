@@ -2,7 +2,15 @@
 <form action="/entries/<%= @entry.id %>" method="POST">
 <input type="hidden" name="_method" value="PATCH">
 
-<label>Edit:</label>
+<label>Program Name:</label>
+	<input type="text" name="name" id="name" value="<%= @entry.name %>">
+</br></br>
+
+<label>Program Field:</label>
+	<input type="text" name="field" id="field" value="<%= @entry.field %>">
+</br></br>
+
+<label>Experience:</label>
 	<input type="text" name="content" id="content" value="<%= @entry.content %>">
 </br></br>
 
