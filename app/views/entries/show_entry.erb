@@ -1,15 +1,17 @@
 <h1>Interview Information</h1>
-<p><h3>Program Name:</h3>
-  <%= @entry.name %></p>
-<p><h3>Program Field:</h3>
-  <%= @entry.field %></p>
-<p><h3>Experience:</h3>
-  <%= @entry.content %></p>
+<b>Program Name:</b><br>
+  <%= @entry.name %><br></br>
+<b>Program Field:</b><br>
+  <%= @entry.field %><br></br>
+<b>Experience:</b><br>
+  <%= @entry.content %><br></br>
 
 <form action="/entries/<%= @entry.id %>/delete" method="POST">
 <input type="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Entry">
 </form>
 
-<p><a href="/entries/<%= @entry.id %>/edit">Edit Info</a></p>
-<p><a href="/logout">Logout</a></p>
+<p><a href="/entries/<%= @entry.id %>/edit">Edit Submission</a><br>
+<a href="/applicants/show"><%= current_applicant.username %>'s Page</a><br>
+<a href="/logout">Logout</a>
+</p>
