@@ -1,4 +1,4 @@
-<h3>List of <%= current_applicant.username %>'s Entries</h3>
+<h2>List of <%= current_applicant.username %>'s Entries</h2>
 
 <% current_applicant.entries.each do |entry| %>
     <a href="/entries/<%= entry.id %>"><%= entry.name %> - <%= entry.field %><br>

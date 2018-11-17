@@ -1,8 +1,8 @@
-<h3>Edit</h3>
+<h2>Edit Interview Submission</h2>
 <form action="/entries/<%= @entry.id %>" method="POST">
 <input type="hidden" name="_method" value="PATCH">
 
-<label>Program Name:</label>
+<label>Program Name:</label><br></br>
 	<input type="text" name="name" id="name" value="<%= @entry.name %>">
 </br></br>
 
@@ -30,9 +30,14 @@
 	</select>
 </br></br>
 
-<label>Experience:</label>
-	<input type="text" name="content" id="content" value="<%= @entry.content %>">
+<label>Experience:</label><br></br>
+	<textarea rows="7" cols="70" type="text" name="content" id="content" value="<%= @entry.content %>"><%= @entry.content %></textarea>
 </br></br>
 
 <input type="submit" value="Submit">
 </form>
+
+<p><a href="/entries/new">Add Another Interview</a><br>
+<a href="/applicants/show">View Your Interviews</a><br>
+<a href="/entries">View Other Applicants' Experiences</a><br>
+<a href="/logout">Logout</a></p>
