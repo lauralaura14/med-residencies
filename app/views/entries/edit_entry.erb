@@ -1,4 +1,4 @@
-<h2>Edit Interview Submission</h2>
+<h1>Edit Interview Submission</h1>
 <form action="/entries/<%= @entry.id %>" method="POST">
 <input type="hidden" name="_method" value="PATCH">
 
@@ -6,7 +6,7 @@
 	<input type="text" name="name" id="name" value="<%= @entry.name %>">
 </br></br>
 
-<label>Program Field:</label>
+<label>Program Specialty:</label>
 </br></br>
 	<select name="field">
 	 <option value="Anesthesiology">Anesthesiology</option>
