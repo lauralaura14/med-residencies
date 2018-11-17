@@ -6,9 +6,9 @@ This is a MVC Sinatra application for medical residency applicants to share thei
 
 1. Clone repository
 2. cd into repository
-3. Run bundle install
-4. Run rake db:migrate
-5. Run shotgun to start server
+3. Run `bundle install`
+4. Run `rake db:migrate`
+5. Run `shotgun` to start server
 6. Copy localhost and paste into internet browser
 7. Follow instructions on application
 
