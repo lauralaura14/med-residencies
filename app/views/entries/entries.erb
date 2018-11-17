@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <font color="red"><%= flash[:message] %></font><br></br>
+<% end %>
+
 <h1>Here are what applicants' had to say about their interview days:</h1>
 
 <% @entries.each do |entry| %>
@@ -10,7 +14,7 @@
 <% end %>
 
 <p>
-Now that you've finished reading, what would you like to do? <br>
+<b>Now that you've finished reading, what would you like to do?</b><br>
 <a href="/entries/new">Add Interview</a><br>
 <a href="/applicants/show">View Your Interviews</a><br>
 <a href="/logout">Logout</a>

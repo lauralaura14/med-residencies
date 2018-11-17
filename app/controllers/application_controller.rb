@@ -1,6 +1,10 @@
 require './config/environment'
+require 'sinatra/base'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
+  enable :sessions
+  use Rack::Flash
 
   configure do
     set :public_folder, 'public'
@@ -67,8 +71,10 @@ class ApplicationController < Sinatra::Base
   post '/entries' do
     if logged_in? && params[:name] != "" && params[:field] != "" && params[:content] != ""
       @entry = Entry.create(:name => params[:name], :field => params[:field], :content => params[:content], :applicant_id => session[:applicant_id])
+      flash[:message] = "Successfully created entry."
       redirect to "/entries/#{@entry.id}"
     else
+      flash[:message] = "Please fill in all fields."
       redirect to "/entries/new"
     end
   end
@@ -81,11 +87,14 @@ class ApplicationController < Sinatra::Base
         @entry = Entry.find_by_id(params[:id])
         if @entry && @entry.applicant_id == current_applicant.id
           if @entry.update(:name => params[:name], :field => params[:field], :content => params[:content], :applicant_id => session[:applicant_id])
+            flash[:message] = "Successfully updated entry."
             redirect to "/entries/#{@entry.id}"
           else
+            flash[:message] = "Please fill in all fields."
             redirect to "/entries/#{@entry.id}/edit"
           end
         else
+          flash[:message] = "You must be logged in for this action."
           redirect to "/entries"
         end
       end
@@ -100,8 +109,10 @@ class ApplicationController < Sinatra::Base
       if @entry && @entry.applicant_id == current_applicant.id
         @entry.delete
       end
-      redirect to "/entries"
+      flash[:message] = "Successfully deleted entry."
+      redirect to "/applicants/show"
     else
+      flash[:message] = "You must be logged in for this action."
       redirect to "/login"
     end
   end
@@ -126,11 +137,13 @@ class ApplicationController < Sinatra::Base
 
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:message] = "Please fill in all fields."
       redirect to "/signup"
     else
       @applicant = Applicant.create(:username => params[:username], :email => params[:email], :password => params[:password])
       @applicant.save
       session[:applicant_id] = @applicant.id
+      flash[:message] = "Congratulations! You are now a member."
       redirect to "/entries"
     end
   end
@@ -141,6 +154,7 @@ class ApplicationController < Sinatra::Base
       session[:applicant_id] = @applicant.id
       redirect to "/entries"
     else
+      flash[:message] = "Please try again."
       redirect to "/login"
     end
   end
@@ -149,6 +163,7 @@ class ApplicationController < Sinatra::Base
     applicant = Applicant.find_by(:username => params[:username])
     if logged_in?
       session.clear
+      flash[:message] = "You have logged out."
       redirect to "login"
     else
       redirect to "/"

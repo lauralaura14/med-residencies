@@ -2,6 +2,10 @@
 <form action="/entries/<%= @entry.id %>" method="POST">
 <input type="hidden" name="_method" value="PATCH">
 
+<% if flash.has?(:message) %>
+  <font color="red"><%= flash[:message] %></font><br></br>
+<% end %>
+
 <label>Program Name:</label><br></br>
 	<input type="text" name="name" id="name" value="<%= @entry.name %>">
 </br></br>

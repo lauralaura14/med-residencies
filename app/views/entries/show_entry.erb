@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <font color="red"><%= flash[:message] %></font><br></br>
+<% end %>
+
 <h1>Interview Information</h1>
 <b>Program Name:</b><br>
   <%= @entry.name %><br></br>
