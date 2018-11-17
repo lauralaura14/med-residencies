@@ -14,7 +14,7 @@ This is a MVC Sinatra application for medical residency applicants to share thei
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'lauralaura14'/residencies. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'lauralaura14'/med-residencies. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
