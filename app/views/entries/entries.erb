@@ -1,9 +1,12 @@
 <h1>Here are what applicants' had to say about their interview days:</h1>
 
 <% @entries.each do |entry| %>
-  <b>Program Name:</b> <%= entry.name %><br>
-  <b>Program Specialty::</b> <%= entry.field %><br>
-  <b>Interview Experience:</b> <%= entry.content %><p>
+  <b>Program Name:</b><br>
+  <%= entry.name %><br>
+  <b>Program Specialty:</b><br>
+  <%= entry.field %><br>
+  <b>Interview Experience:</b><br>
+  <%= entry.content %><p>
 <% end %>
 
 <p>
